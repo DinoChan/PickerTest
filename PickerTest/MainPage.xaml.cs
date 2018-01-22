@@ -25,6 +25,7 @@ namespace PickerTest
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
         private void confirmColor_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,11 @@ namespace PickerTest
         {
             // Close the Flyout.
             colorPickerButton.Flyout.Hide();
+        }
+
+        private void colorPickerButton_Click(object sender, RoutedEventArgs e)
+        {
+            sss.IsEnabled = false;
         }
     }
 }

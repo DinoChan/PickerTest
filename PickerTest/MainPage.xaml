@@ -28,8 +28,17 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
         <Button x:Name="colorPickerButton"
+               Click="colorPickerButton_Click"
                 Content="Pick a Date"
                 Flyout="{StaticResource myColorPickerFlyout}"/>
+            <TextBox Margin="50" Header="Name"/>
+            <local:MyDatePicker  HorizontalAlignment="Center" Header="Birthday"/>
+            <local:MyDatePicker  HorizontalAlignment="Center" />
+
+            <local:MyDatePicker  HorizontalAlignment="Center" Header="Birthday" IsEnabled="False"/>
+            <local:MyDatePicker  HorizontalAlignment="Center" x:Name="sss" Header="Birthday"/>
+        </StackPanel>
     </Grid>
 </Page>
