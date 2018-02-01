@@ -5,6 +5,7 @@
     xmlns:local="using:PickerTest"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
     <Page.Resources>
         <Flyout x:Key="myColorPickerFlyout">
@@ -29,7 +30,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-        <Button x:Name="colorPickerButton"
+            <Button x:Name="colorPickerButton"
                Click="colorPickerButton_Click"
                 Content="Pick a Date"
                 Flyout="{StaticResource myColorPickerFlyout}"/>
@@ -39,6 +40,90 @@
 
             <local:MyDatePicker  HorizontalAlignment="Center" Header="Birthday" IsEnabled="False"/>
             <local:MyDatePicker  HorizontalAlignment="Center" x:Name="sss" Header="Birthday"/>
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Width="200" Margin="10,0">
+                    <TextBox Header="TextBox" />
+                    <TextBox Header="TextBox" />
+                    <TextBox Header="TextBox" />
+                    <TextBox Header="TextBox" />
+                    <TextBox Header="TextBox" />
+                </StackPanel>
+                <StackPanel Width="200" Margin="10,0" Grid.Column="1">
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" >
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                </StackPanel>
+
+                <StackPanel Width="200" Margin="10,0" Grid.Column="2">
+                    <TextBox />
+                    <TextBox />
+                    <TextBox />
+                    <TextBox />
+                    <TextBox />
+                </StackPanel>
+                <!--<StackPanel Width="200" Margin="10,0" Grid.Column="3">
+                    <controls:HeaderedContentControl  HorizontalContentAlignment="Stretch" >
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl  HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl  HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl HorizontalContentAlignment="Stretch">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                </StackPanel>-->
+
+                <!-- <StackPanel Width="200" Margin="10,0"  Grid.Column="4">
+                    <TextBox Header="TextBox" IsEnabled="False"/>
+                    <TextBox Header="TextBox" IsEnabled="False"/>
+                    <TextBox Header="TextBox" IsEnabled="False"/>
+                    <TextBox Header="TextBox" IsEnabled="False"/>
+                    <TextBox Header="TextBox" IsEnabled="False"/>
+                </StackPanel>
+                <StackPanel Width="200" Margin="10,0" Grid.Column="5" >
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" IsEnabled="False">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" IsEnabled="False">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" IsEnabled="False">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" IsEnabled="False">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                    <controls:HeaderedContentControl Header="TextBox" HorizontalContentAlignment="Stretch" IsEnabled="False">
+                        <TextBox/>
+                    </controls:HeaderedContentControl>
+                </StackPanel>-->
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>

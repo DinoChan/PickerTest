@@ -1,64 +1,72 @@
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PickerTest">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="using:PickerTest">
 
-    <Style TargetType="local:MyDatePicker" >
-        <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-        <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+    <Style TargetType="local:MyDatePicker">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="FontFamily"
+                Value="{ThemeResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize"
+                Value="{ThemeResource ControlContentThemeFontSize}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:MyDatePicker">
-                    <StackPanel x:Name="LayoutRoot" Margin="{TemplateBinding Padding}">
+                    <StackPanel x:Name="LayoutRoot"
+                                Margin="{TemplateBinding Padding}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentPresenter" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource DatePickerHeaderForegroundDisabled}" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                                                    Value="{ThemeResource DatePickerHeaderForegroundDisabled}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="PopupStates">
                                 <VisualState x:Name="PopupOpened" />
-                                <VisualState x:Name="PopupClosed"/>
+                                <VisualState x:Name="PopupClosed" />
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <ContentPresenter x:Name="HeaderContentPresenter"
-                            x:DeferLoadStrategy="Lazy"
-                            Content="{TemplateBinding Header}"
-                            ContentTemplate="{TemplateBinding HeaderTemplate}"
-                            Margin="0,0,0,8"
-                            Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
-                            AutomationProperties.AccessibilityView="Raw" />
+                                          x:DeferLoadStrategy="Lazy"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          Margin="0,0,0,8"
+                                          Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                                          AutomationProperties.AccessibilityView="Raw" />
                         <ToggleButton x:Name="DateButton"
-                            Content="{TemplateBinding DateTime}"
-                            IsEnabled="{TemplateBinding IsEnabled}"
-                            IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsDropDownOpen,Mode=TwoWay}"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Stretch">
+                                      Content="{TemplateBinding DateTime}"
+                                      IsEnabled="{TemplateBinding IsEnabled}"
+                                      IsChecked="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsDropDownOpen,Mode=TwoWay}"
+                                      HorizontalAlignment="Stretch"
+                                      HorizontalContentAlignment="Stretch">
 
                             <FlyoutBase.AttachedFlyout>
-                                <Flyout Placement="Bottom" x:Name="Flyout">
+                                <Flyout Placement="Bottom"
+                                        x:Name="Flyout">
                                     <Flyout.FlyoutPresenterStyle>
                                         <Style TargetType="FlyoutPresenter">
-                                            <Setter Property="Padding" Value="0" />
-                                            <Setter Property="BorderThickness" Value="0" />
+                                            <Setter Property="Padding"
+                                                    Value="0" />
+                                            <Setter Property="BorderThickness"
+                                                    Value="0" />
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="FlyoutPresenter">
                                                         <ContentPresenter Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        Content="{TemplateBinding Content}"
-                                                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                        ContentTransitions="{TemplateBinding ContentTransitions}"
-                                                        Margin="{TemplateBinding Padding}"
-                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                                                          Content="{TemplateBinding Content}"
+                                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                          ContentTransitions="{TemplateBinding ContentTransitions}"
+                                                                          Margin="{TemplateBinding Padding}"
+                                                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                                                     </ControlTemplate>
                                                 </Setter.Value>
                                             </Setter>
@@ -66,12 +74,14 @@
                                     </Flyout.FlyoutPresenterStyle>
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition/>
-                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition />
+                                            <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
-                                        <CalendarView x:Name="Calendar" 
-                                                      Style="{TemplateBinding CalendarViewStyle}"/>
-                                        <Grid Grid.Row="1" Height="45" x:Name="AcceptDismissHostGrid">
+                                        <CalendarView x:Name="Calendar"
+                                                      Style="{TemplateBinding CalendarViewStyle}" />
+                                        <Grid Grid.Row="1"
+                                              Height="45"
+                                              x:Name="AcceptDismissHostGrid">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
@@ -104,6 +114,68 @@
                             </FlyoutBase.AttachedFlyout>
                         </ToggleButton>
                     </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:HeaderedContentControl">
+        <Setter Property="FontFamily"
+                Value="{ThemeResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize"
+                Value="{ThemeResource ControlContentThemeFontSize}" />
+        <Setter Property="Foreground"
+                Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Stretch" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Stretch" />
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:HeaderedContentControl">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentPresenter"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0"
+                                                                    Value="{ThemeResource TextControlHeaderForegroundDisabled}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                   
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal" />
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ContentPresenter x:Name="HeaderContentPresenter"
+                                          x:DeferLoadStrategy="Lazy"
+                                          Visibility="Collapsed"
+                                          Grid.Row="0"
+                                          Foreground="{ThemeResource TextControlHeaderForeground}"
+                                          Margin="0,0,0,8"
+                                          Grid.ColumnSpan="2"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          TextWrapping="{TemplateBinding TextWrapping}"
+                                          FontWeight="Normal" />
+
+                        <ContentPresenter Grid.Row="1"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Margin="{TemplateBinding Padding}"
+                                          ContentTransitions="{TemplateBinding ContentTransitions}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

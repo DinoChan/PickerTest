@@ -77,8 +77,6 @@ namespace PickerTest
             base.IsEnabledChanged += OnPickerIsEnabledChanged;
         }
 
-     
-
         /// <summary>
         ///     获取或设置IsDropDownOpen的值
         /// </summary>
@@ -126,6 +124,7 @@ namespace PickerTest
             _dismissButton = GetTemplateChild(DismissButtonName) as Button;
             if (_dismissButton != null)
                 _dismissButton.Click += OnDismiss;
+
             UpdateVisibility();
         }
 
