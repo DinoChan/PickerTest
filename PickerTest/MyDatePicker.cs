@@ -19,29 +19,13 @@ namespace PickerTest
         public static readonly DependencyProperty DateTimeProperty =
             DependencyProperty.Register("DateTime", typeof(DateTime), typeof(MyDatePicker), new PropertyMetadata(DateTime.Now, OnDateTimeChanged));
 
-        private static void OnDateTimeChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
-        {
-            var target = obj as MyDatePicker;
-            var oldValue = (DateTime)args.OldValue;
-            var newValue = (DateTime)args.NewValue;
-            if (oldValue != newValue)
-                target.OnDateTimeChanged(oldValue, newValue);
-        }
-
         /// <summary>
         ///     标识 CalendarViewStyle 依赖属性。
         /// </summary>
         public static readonly DependencyProperty CalendarViewStyleProperty =
             DependencyProperty.Register("CalendarViewStyle", typeof(Style), typeof(MyDatePicker), new PropertyMetadata(null, OnCalendarViewStyleChanged));
 
-        private static void OnCalendarViewStyleChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
-        {
-            var target = obj as MyDatePicker;
-            var oldValue = (Style)args.OldValue;
-            var newValue = (Style)args.NewValue;
-            if (oldValue != newValue)
-                target.OnCalendarViewStyleChanged(oldValue, newValue);
-        }
+        private CalendarView _calendar;
 
         public MyDatePicker()
         {
@@ -67,9 +51,25 @@ namespace PickerTest
             set => SetValue(CalendarViewStyleProperty, value);
         }
 
-        private CalendarView _calendar;
+        private static void OnDateTimeChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            var target = obj as MyDatePicker;
+            var oldValue = (DateTime) args.OldValue;
+            var newValue = (DateTime) args.NewValue;
+            if (oldValue != newValue)
+                target.OnDateTimeChanged(oldValue, newValue);
+        }
 
-       
+        private static void OnCalendarViewStyleChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
+        {
+            var target = obj as MyDatePicker;
+            var oldValue = (Style) args.OldValue;
+            var newValue = (Style) args.NewValue;
+            if (oldValue != newValue)
+                target.OnCalendarViewStyleChanged(oldValue, newValue);
+        }
+
+
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -93,6 +93,7 @@ namespace PickerTest
         protected virtual void OnCalendarViewStyleChanged(Style oldValue, Style newValue)
         {
         }
+        
 
         protected override void OnIsDropDownOpenChanged(bool oldValue, bool newValue)
         {

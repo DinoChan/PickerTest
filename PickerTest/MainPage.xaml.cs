@@ -28,24 +28,6 @@ namespace PickerTest
             
         }
 
-        private void confirmColor_Click(object sender, RoutedEventArgs e)
-        {
-            // Assign the selected color to a variable to use outside the popup.
-        var dates = CalendarView.SelectedDates;
-
-            // Close the Flyout.
-            colorPickerButton.Flyout.Hide();
-        }
-
-        private void cancelColor_Click(object sender, RoutedEventArgs e)
-        {
-            // Close the Flyout.
-            colorPickerButton.Flyout.Hide();
-        }
-
-        private void colorPickerButton_Click(object sender, RoutedEventArgs e)
-        {
-            sss.IsEnabled = false;
-        }
+     
     }
 }
