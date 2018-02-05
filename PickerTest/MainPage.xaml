@@ -13,7 +13,7 @@
             <ToggleSwitch Header="IsEnabled"
                           x:Name="IsEnabledToggle"
                           IsOn="True" />
-            <ContentControl IsEnabled="{Binding ElementName=IsEnabledToggle,Path=IsOn}">
+            <ContentControl IsEnabled="{Binding ElementName=IsEnabledToggle,Path=IsOn}" HorizontalContentAlignment="Stretch">
                 <StackPanel>
                     <local:MyDatePicker Header="Birthday"
                                         HorizontalAlignment="Center"
@@ -86,9 +86,8 @@
                                 <TextBox />
                             </local:HeaderedContentControl>
                         </StackPanel>
-
-
                     </StackPanel>
+                    
                 </StackPanel>
 
             </ContentControl>

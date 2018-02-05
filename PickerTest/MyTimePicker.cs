@@ -42,11 +42,6 @@ namespace PickerTest
                 target.OnTimeChanged(oldValue, newValue);
         }
 
-        protected virtual void OnTimeChanged(TimeSpan oldValue, TimeSpan newValue)
-        {
-            UpdateTimePicerFlyoutPickedTime();
-        }
-
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -56,6 +51,12 @@ namespace PickerTest
 
             UpdateTimePicerFlyoutPickedTime();
             UpdateVisualState(false);
+        }
+
+
+        protected virtual void OnTimeChanged(TimeSpan oldValue, TimeSpan newValue)
+        {
+            UpdateTimePicerFlyoutPickedTime();
         }
 
         protected override void OnIsDropDownOpenChanged(bool oldValue, bool newValue)

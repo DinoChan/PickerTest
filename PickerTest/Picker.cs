@@ -78,12 +78,6 @@ namespace PickerTest
                 _flyout.Hide();
         }
 
-        protected override void UpdateVisualState(bool useTransitions)
-        {
-            base.UpdateVisualState(useTransitions);
-            VisualStateManager.GoToState(this, IsDropDownOpen ? PopupOpenedName : PopupClosedName, useTransitions);
-        }
-
         protected virtual void OnFlyoutClosed(object e)
         {
             IsDropDownOpen = false;
@@ -97,6 +91,12 @@ namespace PickerTest
         protected virtual void OnDismiss(RoutedEventArgs e)
         {
             IsDropDownOpen = false;
+        }
+
+        protected override void UpdateVisualState(bool useTransitions)
+        {
+            base.UpdateVisualState(useTransitions);
+            VisualStateManager.GoToState(this, IsDropDownOpen ? PopupOpenedName : PopupClosedName, useTransitions);
         }
 
         private void OnFlyoutClosed(object sender, object e)

@@ -64,10 +64,6 @@
                                                     <ColumnDefinition Width="*" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <Rectangle Height="2"
-                                                           VerticalAlignment="Top"
-                                                           Fill="{ThemeResource DatePickerFlyoutPresenterSpacerFill}"
-                                                           Grid.ColumnSpan="2" />
                                                 <Button x:Name="AcceptButton"
                                                         Grid.Column="0"
                                                         Content="&#xE8FB;"
@@ -120,7 +116,7 @@
                                           HorizontalAlignment="Stretch"
                                           HorizontalContentAlignment="Stretch">
                                 <FlyoutBase.AttachedFlyout>
-                                    <TimePickerFlyout x:Name="Flyout" />
+                                    <TimePickerFlyout x:Name="Flyout" Placement="Bottom"/>
                                 </FlyoutBase.AttachedFlyout>
                             </ToggleButton>
                         </local:HeaderedContentControl>
